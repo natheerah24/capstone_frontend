@@ -1,28 +1,46 @@
 <template>
   <section id="products">
-    <div class="row">
-      <div class="col-md-3 col-sm-6">
-        <div class="product-grid">
-          <div class="product-image">
-            <a href="#" class="image">
-              <img src="images/img-1.jpg" />
-            </a>
-            <ul class="product-links">
-              <li>
-                <a href="#"><i class="fa fa-heart"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-eye"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="product-content">
-            <span class="product-category"><a href="">Men's</a></span>
-            <h3 class="title"><a href="#">Men's Shirt</a></h3>
-            <div class="price">$49.99</div>
-            <a href="#" class="add-to-cart"
-              ><i class="fas fa-shopping-bag"></i
-            ></a>
+    <h1 id="heading">Products</h1>
+    <div class="wrap">
+      <div class="search">
+        <input
+          type="text"
+          class="searchTerm"
+          placeholder="Search By Category"
+          v-model="search"
+        />
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div v-if="filteredProducts" class="row">
+        <div
+          v-for="product in filteredProducts"
+          :key="product.product_id"
+          :post="post"
+          class="col-lg-4"
+        >
+          <div class="product-grid">
+            <div class="product-image">
+              <!-- <a href="#" class="image"> -->
+              <img :src="product.image" />
+              <!-- </a> -->
+              <ul class="product-links">
+                <li>
+                  <a href="#"><i class="fa fa-eye"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="product-content">
+              <span class="product-category">{{ product.category }}</span>
+
+              <div class="price">R{{ product.price }}</div>
+              <router-link to="/cart" class="add-to-cart"
+                ><i class="fas fa-shopping-bag"></i
+              ></router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -30,11 +48,49 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      search: "",
+    };
+  },
+  mounted() {
+    this.$store.dispatch("getProducts");
+  },
+  computed: {
+    // products() {
+    //   console.log(this.$store.state.products);
+    //   return this.$store.state.products;
+    // },
+
+    filteredProducts() {
+      return this.$store.state.products?.filter((product) => {
+        let isMatch = true;
+        if (
+          !product.category?.toLowerCase().includes(this.search.toLowerCase())
+        )
+          isMatch = false;
+        return isMatch;
+      });
+    },
+  },
+};
 </script>
 <style scoped>
+body,
+html {
+  overflow-x: hidden;
+}
 #products {
-  background-color: #ab87ff;
+  background-color: rgb(255 184 201);
+  padding-top: 6rem;
+}
+#heading {
+  font-family: "Titan One";
+  font-size: 4rem;
+  color: rgb(212 20 66);
+  text-align: center;
+  padding-bottom: 7rem;
 }
 .product-grid {
   font-family: "Lato", sans-serif;
@@ -53,8 +109,9 @@ export default {};
   display: block;
 }
 .product-grid .product-image img {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 .product-grid .product-links {
   padding: 0;
@@ -83,7 +140,7 @@ export default {};
   transform: translate(0, 0);
 }
 .product-grid .product-links li a {
-  color: #fface4;
+  color: rgb(212 20 66);
   background-color: rgba(0, 0, 0, 0.1);
   font-size: 14px;
   text-align: center;
@@ -96,21 +153,20 @@ export default {};
 }
 .product-grid .product-links li a:hover {
   color: #fff;
-  background: #fface4;
+  background: rgb(212 20 66);
 }
 .product-grid .product-content {
   padding: 15px;
 }
 .product-grid .product-category {
-  color: #fface4;
-  font-size: 14px;
-  font-weight: 500;
+  color: rgb(212 20 66);
+ font-family: 'Times New Roman', Times, serif;
   text-transform: capitalize;
   margin: 0 0 8px;
   display: block;
 }
 .product-grid .product-category a {
-  color: #fface4;
+  color: rgb(212 20 66);
   transition: all 0.3s ease 0s;
 }
 .product-grid .product-category a:hover {
@@ -127,17 +183,18 @@ export default {};
   transition: all 0.3s ease 0s;
 }
 .product-grid .title a:hover {
-  color: #fface4;
+  color: rgb(212 20 66);
 }
 .product-grid .price {
-  color: #fface4;
+  color: rgb(212 20 66);
   font-size: 20px;
   font-weight: 700;
   width: calc(100% - 43px);
   display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
 }
 .product-grid .add-to-cart {
-  color: #bcbcbc;
+  color: rgb(255 165 186);
   background: #f4f4f4;
   font-size: 18px;
   text-align: center;
@@ -153,7 +210,53 @@ export default {};
 }
 .product-grid:hover .add-to-cart {
   color: #fff;
-  background: #fface4;
+  background: rgb(212 20 66);
+}
+.col-lg-4 {
+  padding-bottom: 3rem;
+}
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-bottom: 9rem;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid rgb(212 20 66);
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.searchTerm:focus {
+  color: rgb(212 20 66);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid rgb(212 20 66);
+  background: rgb(212 20 66);
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 30%;
+  position: absolute;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 @media screen and (max-width: 990px) {
   .product-grid {

@@ -24,7 +24,7 @@
             placeholder="login"
           />
           <input
-            type="text"
+            type="password"
             id="password"
             class="fadeIn third"
             name="login"
@@ -47,30 +47,26 @@
   </section>
 </template>
 <script>
-export default {
-   
-};
+export default {};
 </script>
 <style scoped>
 /* BASIC */
 
 #login {
-  font-family: "DynaPuff", cursive;
+  font-family: "Titan One";
   height: 100vh;
-  background-color: #ab87ff;
+  background-color: rgb(255 184 201);
 }
 
 #forgotpsw {
-  color: #ad92b7;
+  color: rgb(212 20 66);
   display: inline-block;
   text-decoration: none;
-  font-weight: 400;
 }
 
 #title {
   text-align: center;
   font-size: 16px;
-  font-weight: 600;
   text-transform: uppercase;
   display: inline-block;
   margin: 40px 8px 10px 8px;
@@ -97,7 +93,6 @@ export default {
   max-width: 450px;
   position: relative;
   padding: 0px;
-
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
@@ -118,8 +113,8 @@ export default {
 }
 
 #title.active {
-  color: #cccccc;
-  border-bottom: 2px solid #fface4;
+  color: rgb(212 20 66);
+  border-bottom: 2px solid rgb(255 165 186);
 }
 
 /* FORM */
@@ -127,7 +122,7 @@ export default {
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  background-color: #fface4;
+  background-color: rgb(212 20 66);
   border: none;
   color: white;
   padding: 15px 80px;
@@ -136,20 +131,17 @@ input[type="reset"] {
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  font-family: "DynaPuff", cursive;
-
+  font-family: "Titan One";
   box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
-
   transition: all 0.3s ease-in-out;
 }
 
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
-  background-color: #fface4;
+  background-color: rgb(255 165 186);
 }
 
 input[type="button"]:active,
@@ -158,30 +150,32 @@ input[type="reset"]:active {
   transform: scale(0.95);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   background-color: #f6f6f6;
   border: none;
-  color: #ab87ff;
+  color: black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
   margin: 5px;
   width: 85%;
   border: 2px solid #f6f6f6;
-
   transition: all 0.5s ease-in-out;
-
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #fface4;
+  border-bottom: 2px solid rgb(255 184 186);
 }
 
-input[type="text"]:placeholder {
+input[type="text"]:placeholder,
+input[type="password"]:placeholder {
   color: #cccccc;
 }
 
@@ -281,13 +275,13 @@ input[type="text"]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #fface4;
+  background-color: rgb(255 184 186);
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #ab87ff;
+  color: rgb(255 184 186);
 }
 
 .underlineHover:hover:after {

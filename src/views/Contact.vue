@@ -1,55 +1,79 @@
 <template>
   <section id="contact">
-    <div class="form-bg">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-container">
-              <h3 class="title">Contact Us</h3>
-              <form
-                class="form-horizontal"
-                action="https://formspree.io/f/xayknkwa"
-                method="POST"
-              >
-                <div class="form-group">
-                  <input
-                    type="name"
-                    class="form-control"
-                    placeholder="Full name"
-                    name="name"
-                  />
-                </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="bg">
+          <h1 id="heading">
+            Feel Free to <br />
+            Contact Us
+          </h1>
+          <a @click="goto('bottom')" id="scroll-btn"
+            ><i class="fa-solid fa-arrow-down"></i
+          ></a>
+        </div>
+        <div class="col-md-6">
+          <div id="contact-img"></div>
+          <img
+            id="person"
+            src="https://i.postimg.cc/XYcdmvB7/pexels-matheus-henrin-2121323-removebg-preview.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div ref="bottom">
+        <div class="form-bg">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-container">
+                  <h3 class="title">Send Us a</h3>
+                  <h2 id="title-2">Message</h2>
+                  <form
+                    class="form-horizontal"
+                    action="https://formspree.io/f/xayknkwa"
+                    method="POST"
+                  >
+                    <div class="form-group">
+                      <input
+                        type="name"
+                        class="form-control"
+                        placeholder="Full name"
+                        name="name"
+                      />
+                    </div>
 
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder=" Email"
-                    name="email"
-                  />
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder=" Email"
+                        name="email"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Message"
+                        name="message"
+                      />
+                    </div>
+                    <button class="btn btn-default">Send</button>
+                  </form>
                 </div>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Message"
-                    name="message"
-                  />
-                </div>
-                <button class="btn btn-default">Send</button>
-              </form>
+              </div>
+              <div class="col-md-6">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13233.069675818386!2d18.4926986!3d-33.9856643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c746d268c8e0ad9!2sLife%20Choices!5e0!3m2!1sen!2sza!4v1661860005959!5m2!1sen!2sza"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13233.069675818386!2d18.4926986!3d-33.9856643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c746d268c8e0ad9!2sLife%20Choices!5e0!3m2!1sen!2sza!4v1661860005959!5m2!1sen!2sza"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
           </div>
         </div>
       </div>
@@ -57,27 +81,89 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    goto(bottom) {
+      let element = this.$refs[bottom];
+      let top = element.offsetTop;
+      window.scrollTo(0, top);
+    },
+  },
+};
 </script>
 <style scoped>
+p {
+  background-color: #cecece;
+}
+#person {
+  width: 33rem;
+  height: 46rem;
+  margin-top: -47rem;
+  margin-left: 52rem;
+  position: absolute;
+}
+a#scroll-btn {
+  margin-left: 20rem;
+  font-size: 4rem;
+  color: rgb(212 20 66);
+}
+a#scroll-btn :hover {
+  color: white;
+}
+#contact-img {
+  background-color: rgb(255 165 186);
+  clip-path: circle(31.1% at 50% 49%);
+  width: 40rem;
+  height: 53rem;
+  margin-left: 50rem;
+  margin-top: -33rem;
+}
 #contact {
-  background-color: #fface4;
+  background-color: rgb(255 184 201);
+  min-height: 100vh;
+  padding-top: 5rem;
+  overflow: hidden;
 }
 .form-container {
-  background-color: #ab87ff;
+  box-shadow: 10px 10px 8px #888888;
   font-family: "Nunito", sans-serif;
   text-align: center;
-  padding: 60px 100px 100px;
+  padding: 50px 100px 55px;
   /* border-radius: 50%; */
 }
 .form-container .title {
-  color: #fface4;
-  font-size: 30px;
-  font-family: "DynaPuff", cursive;
+  color: rgb(255 184 201);
+  font-family: "Titan One";
+  /* font-size: 4rem; */
   text-transform: capitalize;
   margin: 0 0 20px;
   display: inline-block;
   position: relative;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  margin-bottom: 5px;
+  /* margin-left: -7rem; */
+  display: flex;
+  flex-direction: row;
+}
+#title-2 {
+  font-family: "Titan One";
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: rgb(212 20 66);
+  display: flex;
+  flex-direction: row;
+}
+#heading {
+  color: white;
+  font-family: "Titan One";
+  font-size: 4rem;
+  padding-left: 10rem;
+  padding-top: 7rem;
 }
 .form-container .form-horizontal .form-group {
   font-size: 0px;
@@ -103,20 +189,17 @@ export default {};
 }
 .form-container .form-horizontal .form-control::placeholder {
   color: #666157;
-  font-family: "DynaPuff", cursive;
-  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
 }
 .form-container .form-horizontal .btn {
   color: #fff;
-  background-color: #fface4;
+  background-color: rgb(212 20 66);
   font-size: 25px;
-  font-family: "DynaPuff", cursive;
-  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
   text-transform: capitalize;
   width: 100%;
   border: none;
   border-radius: 50px;
-  box-shadow: inset -3px -3px 10px #ff79d2;
   transition: all 0.3s ease 0s;
 }
 .form-container .form-horizontal .btn:hover {
@@ -124,6 +207,24 @@ export default {};
 }
 .form-container .form-horizontal .btn:focus {
   outline: none;
+}
+.form-bg {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: white;
+}
+div#bg {
+  padding-bottom: 5rem;
+}
+/* p[data-v-40ab164b] {
+  margin-top: 0;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: center;
+  background-color: red;
+} */
+#footer {
+  background-color: white;
 }
 @media only screen and (max-width: 479px) {
   .form-container {

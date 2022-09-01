@@ -1,15 +1,69 @@
 <template>
-  <homeDesc />
-  <div class="home"></div>
+  <section id="home">
+    <h1 id="heading">Candy Kingdom</h1>
+    <p id="slogan">We Give You Delicious Memories.</p>
+    <div id="logo"></div>
+    <img
+      id="sweetimg"
+      src="https://i.postimg.cc/5yh907Ht/pexels-somben-chea-1289365-removebg-preview.png"
+      alt=""
+    />
+    <div id="btn">
+      <router-link to="/about" class="btn btn-outline-light rounded-pill"
+        >About</router-link
+      ><router-link to="/products" class="btn btn-outline-light rounded-pill"
+        >Products</router-link
+      >
+    </div>
+  </section>
 </template>
-
 <script>
-import homeDesc from "../components/homeDesc.vue";
-
-export default {
-  components: {
-    homeDesc,
-  },
-};
+export default {};
 </script>
-<style scoped></style>
+<style scoped>
+#home {
+  background-color: rgb(255 184 201);
+  min-height: 40vh;
+  overflow: hidden;
+}
+a.btn.btn-outline-light.rounded-pill {
+  margin-top: -93rem;
+  margin-left: 1rem;
+  color: rgb(212 20 66);
+}
+#logo {
+  background-color: rgb(255 165 186);
+  clip-path: circle(31.1% at 50% 49%);
+  width: 40rem;
+  height: 53rem;
+  margin-left: 30rem;
+  margin-top: -6rem;
+}
+#heading {
+  font-family: "Titan One";
+  font-size: 4rem;
+  color: rgb(212 20 66);
+  padding-top: 5rem;
+  /* padding-left: 8rem; */
+  text-align: center;
+}
+#sweetimg {
+  width: 40rem;
+  height: 33rem;
+  margin-top: -39rem;
+  margin-left: 29rem;
+  position: absolute;
+}
+#slogan {
+  font-family: "Titan One";
+  font-size: 3rem;
+  color: white;
+  /* padding-left: 1rem; */
+  text-align: center;
+}
+#btn {
+  padding-left: 25rem;
+  margin-left: 17rem;
+  
+}
+</style>
