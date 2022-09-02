@@ -180,7 +180,7 @@ input[type="text"] {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Lato", sans-serif;
   margin: 5px;
   width: 85%;
   border: 2px solid #f6f6f6;

@@ -29,7 +29,9 @@
               <!-- </a> -->
               <ul class="product-links">
                 <li>
-                  <a href="#"><i class="fa fa-eye"></i></a>
+                  <router-link :to="{name:'singleproduct', params: {id: product.product_id} }"
+                    ><i class="fa fa-eye"></i
+                  ></router-link>
                 </li>
               </ul>
             </div>
@@ -160,7 +162,7 @@ html {
 }
 .product-grid .product-category {
   color: rgb(212 20 66);
- font-family: 'Times New Roman', Times, serif;
+  font-family: "Lato", sans-serif;
   text-transform: capitalize;
   margin: 0 0 8px;
   display: block;
@@ -191,7 +193,7 @@ html {
   font-weight: 700;
   width: calc(100% - 43px);
   display: inline-block;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Lato", sans-serif;
 }
 .product-grid .add-to-cart {
   color: rgb(255 165 186);
@@ -231,7 +233,7 @@ html {
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9dbfaf;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Lato", sans-serif;
 }
 
 .searchTerm:focus {

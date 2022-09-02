@@ -44,7 +44,8 @@
   /* margin-top: 1.5rem; */
   z-index: 100;
   position: fixed;
-  width: 98%;
+  top: 0;
+  width: 100%;
   padding: 20px;
 }
 

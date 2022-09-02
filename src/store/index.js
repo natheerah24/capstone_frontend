@@ -86,6 +86,7 @@ export default createStore({
     },
     // get 1
     getProduct: async (context, id) => {
+      console.log(id);
       fetch("https://candykingdom-api.herokuapp.com/products/" + id)
         .then((response) => response.json())
         .then((json) => context.commit("setProduct", json));

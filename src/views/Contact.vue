@@ -189,13 +189,13 @@ a#scroll-btn :hover {
 }
 .form-container .form-horizontal .form-control::placeholder {
   color: #666157;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Lato", sans-serif;
 }
 .form-container .form-horizontal .btn {
   color: #fff;
   background-color: rgb(212 20 66);
   font-size: 25px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Lato", sans-serif;
   text-transform: capitalize;
   width: 100%;
   border: none;

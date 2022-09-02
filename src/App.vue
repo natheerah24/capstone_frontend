@@ -14,8 +14,10 @@ export default {
   },
 };
 </script>
-<style scoped>
-body,html {
+<style>
+body,
+html {
   overflow-x: hidden;
+  background-color: rgb(255 184 201);
 }
 </style>
