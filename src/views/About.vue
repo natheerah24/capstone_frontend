@@ -32,9 +32,10 @@
             Australia, New Zealand, Europe, Asia, Africa, and South America. Our
             snacks are available in many different flavors and shapes, including
             crunchy, salty, sweet, savory, and more. 
+             </p>
             <h3  id="desc"> Product Features: </h3>
             
-            <p>
+            <p id="ft">
             <ul>
            <li>- Low calorie snacks </li> 
           <li>- High protein snack</li>  
@@ -42,7 +43,7 @@
            <li> - 100% natural</li> 
              </ul>
              </p>
-          </p>
+         
           </div>
           <div class="col-md-6">
             <img src="https://i.postimg.cc/j2XJfz8G/pexels-sandra-filipe-6091088.jpg" alt="" id="bottom-img">
@@ -71,6 +72,7 @@ export default {
 }
 #bottom-bg{
   background-color: white;
+  max-height: 84vh;
 
 }
 #about-img {
@@ -104,8 +106,9 @@ a#scroll-btn :hover {
 p {
   font-family: "Lato", sans-serif;
   font-size: 25px;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  color: #4b6584;
 }
 
 img#bottom-img {
@@ -146,10 +149,117 @@ ul {
   flex-direction: column;
     align-items: center;
     padding-right: 7rem;
-    margin-left: 5rem;
+    margin-left: 2rem;
+    color: #4b6584;
 }
 #aboutcol {
   
     margin-left: 4rem;
+}
+@media screen and (max-width: 300px) {
+  #heading {
+    color: white;
+    font-family: "Titan One";
+    font-size: 3rem;
+    padding-left: 4rem;
+    padding-top: 7rem;
+}
+a#scroll-btn {
+    margin-left: 7rem;
+    font-size: 3rem;
+    color: rgb(212 20 66);
+}
+#about-img {
+    background-color: rgb(255 165 186);
+    -webkit-clip-path: circle(31.1% at 50% 49%);
+    clip-path: circle(31.1% at 50% 49%);
+    width: 15rem;
+    height: 27rem;
+    margin-left: 1rem;
+    margin-top: -6rem;
+}
+#about-pic {
+    width: 11rem;
+    height: 19rem;
+    margin-left: 3rem;
+    margin-top: -22rem;
+    position: absolute;
+}
+#about-head {
+    font-family: "Titan One";
+    color: rgb(212 20 66);
+    margin-left: -1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+#bottom-bg{
+    background-color: white;
+    max-height: 390vh;
+}
+.row{
+  margin: 0%;
+}
+img#bottom-img {
+    max-width: 80%;
+    height: 70%;
+    border-radius: 5rem;
+    /* padding-left: 5rem; */
+    margin-top: 5rem;
+    margin-left: 3rem;
+}
+
+#desc[data-v-039c5b43] {
+    font-family: "Titan One";
+    color: rgb(212 20 66);
+    margin-left: -2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+p{
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    margin-left: -3rem;
+    margin-right: 0rem;
+}
+ul[data-v-039c5b43] {
+    list-style: none;
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0rem;
+    margin-left: -6rem;
+}
+}
+@media screen and (max-width: 600px){
+  a#scroll-btn {
+    margin-left:15rem;
+  }
+  #about-img{
+    width: 26rem;
+    height: 43rem;
+    margin-left: 3rem;
+    margin-top: -9rem;
+  }
+  #about-pic{
+    width: 20rem;
+    height: 31rem;
+    margin-left: 6rem;
+    margin-top: -36rem;}
+
+#about-head{
+  margin-left: 9rem;
+}
+p[data-v-039c5b43] {
+     margin-left: 3rem;
+}
+#bottom-bg{
+  max-height: 230vh;
+}
+#desc{
+  margin-left: 8rem;
+}
+
 }
 </style>

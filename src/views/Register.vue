@@ -65,16 +65,42 @@
           <input
             type="submit"
             class="fadeIn fourth"
-            value="Log In"
+            value="Sign Up"
             onclick="event.preventDefault(), registerNewUser()"
           />
         </form>
+        <p v-if="showError" id="error">Username already exists</p>
       </div>
     </div>
   </section>
 </template>
 <script>
-export default {};
+export default {
+  // name: "Register",
+  // components: {},
+  // data() {
+  //   return {
+  //     form: {
+  //       username: "",
+  //       full_name: "",
+  //       password: "",
+  //     },
+  //     showError: false
+  //   };
+  // },
+  // methods: {
+  //   ...mapActions(["Register"]),
+  //   async submit() {
+  //     try {
+  //       await this.Register(this.form);
+  //       this.$router.push("/posts");
+  //       this.showError = false
+  //     } catch (error) {
+  //       this.showError = true
+  //     }
+  //   },
+  // },
+};
 </script>
 <style scoped>
 section#register {
@@ -317,5 +343,11 @@ input[type="text"]:placeholder {
 }
 .wrapper.fadeInDown {
   padding-top: 8rem;
+}
+@media screen and (max-width: 600px){
+section#register[data-v-63ae9146] {
+    background-color: rgb(255 184 201);
+    margin-bottom: 8rem;
+}
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg opacity-75">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#landing"
+      <a class="navbar-brand" href="#"
         ><i class="fa-solid fa-candy-cane"></i
       ></a>
       <button
@@ -60,7 +60,7 @@ nav a.router-link-exact-active {
   color: rgb(212 20 66);
 }
 i.fa-solid.fa-candy-cane {
-  color: white;
+  color:  rgb(212 20 66);
 }
 @media only screen and (max-width: 600px) {
   .navbar {

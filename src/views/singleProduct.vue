@@ -92,7 +92,7 @@ export default {
 }
 
 h1 {
-  font-family: "Righteous", sans-serif;
+   font-family: "Titan One";
   color: rgba(255, 255, 255, 0.98);
   text-transform: uppercase;
   font-size: 2.4rem;
@@ -158,5 +158,46 @@ p {
 }
 ul {
   list-style: none;
+}
+@media screen and (max-width: 300px) {
+  #heading{
+    font-family: "Titan One";
+    font-size: 3rem;
+    color: rgb(212 20 66);
+    text-align: center;
+    padding-bottom: 7rem;
+}
+
+.banner-image[data-v-78afec5d] {
+    /* background-image: url(https://images.unsplash.com/photo-1641326201918-3cafc641038e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80); */
+    background-position: center;
+    background-size: cover;
+    height: 318px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.255);
+    -o-object-fit: cover;
+    object-fit: cover;
+    aspect-ratio: 1;
+}
+.wrapper[data-v-78afec5d] {
+    width: 100%;
+    height: 100%;
+    margin-left: 0rem;
+}
+img, svg {
+    vertical-align: middle;
+    width: -webkit-fill-available;
+}
+div#space {
+    display: flex;
+    flex-direction: column;
+}
+ul{
+  padding: 0%;
+}
+.button-wrapper[data-v-78afec5d] {
+    margin-top: 0px;
+}
 }
 </style>

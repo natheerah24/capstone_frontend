@@ -37,7 +37,7 @@
             onclick="event.preventDefault(), sendUserData()"
           />
         </form>
-
+  <p v-if="showError" id="error">Username or Password is incorrect</p>
         <!-- Remind Passowrd -->
         <div id="formFooter">
           <a id="forgotpsw" class="underlineHover" href="#">Forgot Password?</a>
@@ -47,7 +47,34 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  // name: "Login",
+  // components: {},
+  // data() {
+  //   return {
+  //     form: {
+  //       username: "",
+  //       password: "",
+  //     },
+  //     showError: false
+  //   };
+  // },
+  // methods: {
+  //   ...mapActions(["LogIn"]),
+  //   async submit() {
+  //     const User = new FormData();
+  //     User.append("username", this.form.username);
+  //     User.append("password", this.form.password);
+  //     try {
+  //         await this.LogIn(User);
+  //         this.$router.push("/posts");
+  //         this.showError = false
+  //     } catch (error) {
+  //       this.showError = true
+  //     }
+  //   },
+  // },
+};
 </script>
 <style scoped>
 /* BASIC */

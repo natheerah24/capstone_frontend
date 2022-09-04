@@ -1,8 +1,9 @@
 <template>
+<div id="admin">
   <h1>Admin</h1>
   <h2>Users Table</h2>
   <table id="userstable" class="table table-hover">
-    <thead class="table-dark">
+    <thead class="table-head">
       <tr>
         <th scope="col">user_id</th>
         <th scope="col">Fullname</th>
@@ -12,6 +13,9 @@
         <th scope="col">Country</th>
         <th scope="col">Phone</th>
         <th scope="col">User Type</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Add</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -24,12 +28,15 @@
         <td>{{ user.country }}</td>
         <td>{{ user.phone }}</td>
         <td>{{ user.user_type }}</td>
+         <td><i class="fa-solid fa-pen"></i></td>
+        <td><i class="fa-solid fa-plus"></i></td>
+        <td><i class="fa-solid fa-trash"></i></td>
       </tr>
     </tbody>
   </table>
   <h2>Products Table</h2>
   <table class="table table-hover">
-    <thead class="table-dark">
+    <thead class="table-head">
       <tr>
         <th scope="col">ID</th>
         <th scope="col">SKU</th>
@@ -41,6 +48,9 @@
         <th scope="col">Category</th>
         <th scope="col">Country</th>
         <th scope="col">Stock</th>
+         <th scope="col">Edit</th>
+        <th scope="col">Add</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -50,14 +60,18 @@
         <td>{{ product.name }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.weight }}</td>
-        <td>{{ product.decriptions }}</td>
+        <td>{{ product.descriptions }}</td>
         <td>{{ product.image }}</td>
         <td>{{ product.category }}</td>
         <td>{{ product.country }}</td>
         <td>{{ product.stock }}</td>
+        <td><i class="fa-solid fa-pen"></i></td>
+        <td><i class="fa-solid fa-plus"></i></td>
+        <td><i class="fa-solid fa-trash"></i></td>
       </tr>
     </tbody>
   </table>
+  </div>
 </template>
 <script>
 export default {
@@ -79,10 +93,34 @@ export default {
 };
 </script>
 <style scoped>
-h1,
+h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+   font-family: "Titan One";
+   color: rgb(212 20 66);
+}
 h2 {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+   font-family: "Titan One";
+   color: white;
+}
+#admin{
+  margin: 4rem;
+}
+.table-head{
+  background-color:rgb(212 20 66) ;
+  color: white;
+   font-family: "Lato", sans-serif;
+}
+td{
+   color: white;
+   font-family: "Lato", sans-serif;
+}
+th{
+     color: white;
+   font-family: "Lato", sans-serif;
 }
 </style>

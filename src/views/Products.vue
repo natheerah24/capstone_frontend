@@ -14,6 +14,7 @@
         </button>
       </div>
     </div>
+     <div id="loader" class="mx-auto"></div>
     <div class="container">
       <div v-if="filteredProducts" class="row">
         <div
@@ -102,10 +103,13 @@ html {
   transition: all 0.4s ease-in-out;
 }
 .product-grid:hover {
-  border-color: #fface4;
+  border-color: rgb(212 20 66);
 }
-.product-grid .product-image {
-  position: relative;
+.product-grid .product-image[data-v-7177119e] {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
 }
 .product-grid .product-image a.image {
   display: block;
@@ -251,6 +255,52 @@ html {
   cursor: pointer;
   font-size: 20px;
 }
+/* From uiverse.io by @Cornerstone-04 */
+#loader {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+#loader::before, 
+#loader::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  animation: rotate92523 2s infinite cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+#loader::before {
+  background-color: white;
+}
+
+#loader::after {
+  background-color: rgb(212 20 66);
+  animation-delay: 1s;
+}
+
+@keyframes rotate92523 {
+  0%, 100% {
+    left: 35px;
+  }
+
+  25% {
+    transform: scale(.3);
+  }
+
+  50% {
+    left: 0%;
+  }
+
+  75% {
+    transform: scale(1);
+  }
+}
 
 /*Resize the wrap to see the search bar change!*/
 .wrap {
@@ -264,5 +314,21 @@ html {
   .product-grid {
     margin-bottom: 30px;
   }
+}
+@media screen and (max-width: 300px) {
+  #heading{
+    font-family: "Titan One";
+    font-size: 3rem;
+    color: rgb(212 20 66);
+    text-align: center;
+    padding-bottom: 7rem;
+}
+}
+@media screen and (max-width: 300px) {
+.product-grid .product-image[data-v-7177119e] {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
 }
 </style>

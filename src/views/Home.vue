@@ -28,7 +28,8 @@ export default {};
 }
 a.btn.btn-outline-light.rounded-pill {
   margin-top: -93rem;
-  margin-left: 1rem;
+  margin-left: -3rem;
+  margin-right: 5rem;
   color: rgb(212 20 66);
 }
 #logo {
@@ -36,7 +37,7 @@ a.btn.btn-outline-light.rounded-pill {
   clip-path: circle(31.1% at 50% 49%);
   width: 40rem;
   height: 53rem;
-  margin-left: 30rem;
+  margin-left: 25rem;
   margin-top: -6rem;
 }
 #heading {
@@ -51,7 +52,7 @@ a.btn.btn-outline-light.rounded-pill {
   width: 40rem;
   height: 33rem;
   margin-top: -39rem;
-  margin-left: 29rem;
+  margin-left: 24rem;
   position: absolute;
 }
 #slogan {
@@ -66,4 +67,43 @@ a.btn.btn-outline-light.rounded-pill {
   margin-left: 17rem;
   
 }
+@media screen and (max-width: 300px) {
+#logo{
+    background-color: rgb(255 165 186);
+    -webkit-clip-path: circle(31.1% at 50% 49%);
+    clip-path: circle(31.1% at 50% 49%);
+    width: 15rem;
+    height: 27rem;
+    margin-left: 2rem;
+    margin-top: -6rem;
+}
+#sweetimg {
+    width: 18rem;
+    height: 16rem;
+    margin-top: -20rem;
+    margin-left: 0rem;
+    position: absolute;
+}
+#heading{
+  font-size: 3rem;
+}
+#slogan{
+  font-size: 2rem;
+}
+
+}
+@media screen and (max-width: 600px) {
+  #logo{
+    margin-left: 4rem;
+    margin-top: -10rem;
+    width: 30rem;
+  }
+  #sweetimg{
+    margin-left: 0%;
+    width: 37rem;
+    height: 30rem;
+    margin-top: -36rem;
+  }
+}
+
 </style>

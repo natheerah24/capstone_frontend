@@ -63,6 +63,8 @@
                 </div>
               </div>
               <div class="col-md-6">
+                <div class="container-fluid">
+    <div class="map-responsive">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13233.069675818386!2d18.4926986!3d-33.9856643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c746d268c8e0ad9!2sLife%20Choices!5e0!3m2!1sen!2sza!4v1661860005959!5m2!1sen!2sza"
                   width="600"
@@ -72,6 +74,8 @@
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
+                </div>
+</div>
               </div>
             </div>
           </div>
@@ -223,13 +227,112 @@ div#bg {
   justify-content: center;
   background-color: red;
 } */
-#footer {
-  background-color: white;
+.container-fluid {
+    margin-top: 0rem;
 }
 @media only screen and (max-width: 479px) {
   .form-container {
     padding: 50px 50px 70px;
     /* border-radius: 30%; */
   }
+}
+@media only screen and (max-width: 479px) {
+  #heading[data-v-df212a54] {
+    color: white;
+    font-family: "Titan One";
+    font-size: 3rem;
+    padding-left: 1rem;
+    padding-top: 0rem;
+}
+a#scroll-btn {
+    margin-left: 8rem;
+    font-size: 3rem;
+    color: rgb(212 20 66);
+}
+#contact-img {
+    background-color: rgb(255 165 186);
+    -webkit-clip-path: circle(31.1% at 50% 49%);
+    clip-path: circle(31.1% at 50% 49%);
+    width: 15rem;
+    height: 27rem;
+    margin-left: 2rem;
+    margin-top: -9rem;
+}
+#person {
+    width: 16rem;
+    height: 23rem;
+    margin-left: 1rem;
+    margin-top: -24rem;
+    position: absolute;
+
+}
+#title-2[data-v-df212a54] {
+    font-family: "Titan One";
+    font-size: 46px;
+    line-height: 60px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    color: rgb(212 20 66);
+    display: flex;
+    flex-direction: row;
+}
+.form-container[data-v-df212a54] {
+    padding: 50px 27px 70px;
+}
+.container-fluid {
+    margin-top: 3rem;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+}
+@media only screen and (max-width: 600px) {
+  #contact-img{
+    width: 26rem;
+    height: 48rem;
+    margin-left: 6rem;
+    margin-top: -14rem;
+  }
+  #person[data-v-df212a54] {
+    width: 29rem;
+    height: 40rem;
+    margin-top: -41rem;
+    margin-left: 3rem;
+    position: absolute;
+}
+#heading{
+  padding-left: 7rem;
+    padding-top: 0rem;
+}
+a#scroll-btn[data-v-df212a54] {
+    margin-left: 17rem;
+
+}
+.container-fluid {
+    margin-top: 3rem;
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:50%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
 }
 </style>
