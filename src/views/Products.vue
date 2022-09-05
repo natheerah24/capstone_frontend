@@ -14,7 +14,6 @@
         </button>
       </div>
     </div>
-     <div id="loader" class="mx-auto"></div>
     <div class="container">
       <div v-if="filteredProducts" class="row">
         <div
@@ -30,7 +29,11 @@
               <!-- </a> -->
               <ul class="product-links">
                 <li>
-                  <router-link :to="{name:'singleproduct', params: {id: product.product_id} }"
+                  <router-link
+                    :to="{
+                      name: 'singleproduct',
+                      params: { id: product.product_id },
+                    }"
                     ><i class="fa fa-eye"></i
                   ></router-link>
                 </li>
@@ -40,6 +43,9 @@
               <span class="product-category">{{ product.category }}</span>
 
               <div class="price">R{{ product.price }}</div>
+              <!-- <button class="add-to-cart" @click="addCart(product)">
+                <i class="fas fa-shopping-bag"></i>
+              </button> -->
               <router-link to="/cart" class="add-to-cart"
                 ><i class="fas fa-shopping-bag"></i
               ></router-link>
@@ -47,6 +53,7 @@
           </div>
         </div>
       </div>
+      <div v-else id="loader" class="mx-auto"></div>
     </div>
   </section>
 </template>
@@ -56,6 +63,11 @@ export default {
     return {
       search: "",
     };
+  },
+  methods: {
+    addCart(product) {
+      this.$store.commit("updateCart", product);
+    },
   },
   mounted() {
     this.$store.dispatch("getProducts");
@@ -106,10 +118,10 @@ html {
   border-color: rgb(212 20 66);
 }
 .product-grid .product-image[data-v-7177119e] {
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
 }
 .product-grid .product-image a.image {
   display: block;
@@ -264,9 +276,9 @@ html {
   transform: translateX(-50%);
 }
 
-#loader::before, 
+#loader::before,
 #loader::after {
-  content: '';
+  content: "";
   position: absolute;
   width: inherit;
   height: inherit;
@@ -285,12 +297,13 @@ html {
 }
 
 @keyframes rotate92523 {
-  0%, 100% {
+  0%,
+  100% {
     left: 35px;
   }
 
   25% {
-    transform: scale(.3);
+    transform: scale(0.3);
   }
 
   50% {
@@ -316,19 +329,19 @@ html {
   }
 }
 @media screen and (max-width: 300px) {
-  #heading{
+  #heading {
     font-family: "Titan One";
     font-size: 3rem;
     color: rgb(212 20 66);
     text-align: center;
     padding-bottom: 7rem;
-}
+  }
 }
 @media screen and (max-width: 300px) {
-.product-grid .product-image[data-v-7177119e] {
+  .product-grid .product-image[data-v-7177119e] {
     position: relative;
     display: flex;
     justify-content: space-evenly;
-}
+  }
 }
 </style>

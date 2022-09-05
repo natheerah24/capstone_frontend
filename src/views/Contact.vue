@@ -64,23 +64,46 @@
               </div>
               <div class="col-md-6">
                 <div class="container-fluid">
-    <div class="map-responsive">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13233.069675818386!2d18.4926986!3d-33.9856643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c746d268c8e0ad9!2sLife%20Choices!5e0!3m2!1sen!2sza!4v1661860005959!5m2!1sen!2sza"
-                  width="600"
-                  height="450"
-                  style="border: 0"
-                  allowfullscreen=""
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                  <div class="map-responsive">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13233.069675818386!2d18.4926986!3d-33.9856643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9c746d268c8e0ad9!2sLife%20Choices!5e0!3m2!1sen!2sza!4v1661860005959!5m2!1sen!2sza"
+                      width="600"
+                      height="450"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
                 </div>
-</div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="demo">
+      <p scoped class="cntct">connect with us:</p>
+      <a href="https://twitter.com/CandyKingdom14" class="link" target="_blank">
+        <span><i class="fa-brands fa-twitter"></i></span>
+      </a>
+      <a
+        href="https://www.instagram.com/candykingdom.wp/"
+        class="link"
+        target="_blank"
+      >
+        <span> <i class="fa-brands fa-instagram"></i></span>
+      </a>
+      <a
+        href="https://www.facebook.com/Candy-Kingdom-100254202837936/"
+        class="link"
+        target="_blank"
+      >
+        <span> <i class="fa-brands fa-facebook"></i></span>
+      </a>
+      <a href="mailto:candykingdom.wp@gmail.com" class="link" target="_blank">
+        <span><i class="fa-solid fa-envelope"></i></span>
+      </a>
     </div>
   </section>
 </template>
@@ -228,7 +251,7 @@ div#bg {
   background-color: red;
 } */
 .container-fluid {
-    margin-top: 0rem;
+  margin-top: 0rem;
 }
 @media only screen and (max-width: 479px) {
   .form-container {
@@ -243,13 +266,13 @@ div#bg {
     font-size: 3rem;
     padding-left: 1rem;
     padding-top: 0rem;
-}
-a#scroll-btn {
+  }
+  a#scroll-btn {
     margin-left: 8rem;
     font-size: 3rem;
     color: rgb(212 20 66);
-}
-#contact-img {
+  }
+  #contact-img {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
     clip-path: circle(31.1% at 50% 49%);
@@ -257,16 +280,15 @@ a#scroll-btn {
     height: 27rem;
     margin-left: 2rem;
     margin-top: -9rem;
-}
-#person {
+  }
+  #person {
     width: 16rem;
     height: 23rem;
     margin-left: 1rem;
     margin-top: -24rem;
     position: absolute;
-
-}
-#title-2[data-v-df212a54] {
+  }
+  #title-2[data-v-df212a54] {
     font-family: "Titan One";
     font-size: 46px;
     line-height: 60px;
@@ -275,29 +297,29 @@ a#scroll-btn {
     color: rgb(212 20 66);
     display: flex;
     flex-direction: row;
-}
-.form-container[data-v-df212a54] {
+  }
+  .form-container[data-v-df212a54] {
     padding: 50px 27px 70px;
-}
-.container-fluid {
+  }
+  .container-fluid {
     margin-top: 3rem;
-}
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:50%;
-    position:relative;
-    height:0;
-}
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
+  }
+  .map-responsive {
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+    height: 0;
+  }
+  .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
 }
 @media only screen and (max-width: 600px) {
-  #contact-img{
+  #contact-img {
     width: 26rem;
     height: 48rem;
     margin-left: 6rem;
@@ -309,30 +331,60 @@ a#scroll-btn {
     margin-top: -41rem;
     margin-left: 3rem;
     position: absolute;
-}
-#heading{
-  padding-left: 7rem;
+  }
+  #heading {
+    padding-left: 7rem;
     padding-top: 0rem;
-}
-a#scroll-btn[data-v-df212a54] {
+  }
+  a#scroll-btn[data-v-df212a54] {
     margin-left: 17rem;
-
-}
-.container-fluid {
+  }
+  .container-fluid {
     margin-top: 3rem;
+  }
+  .map-responsive {
+    overflow: hidden;
+    padding-bottom: 50%;
+    position: relative;
+    height: 0;
+  }
+  .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
 }
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:50%;
-    position:relative;
-    height:0;
+.link {
+  color: #4b6584;
+  font-family: "Fredoka One", cursive;
+  font-size: 22px;
+  line-height: 19px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
 }
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+.link:hover,
+.link:focus {
+  color: rgba(235, 59, 90, 0.8);
+  text-shadow: -3px -3px rgba(235, 59, 90, 0.2);
+  font-size: 25px;
 }
+.demo {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 25rem;
+  gap: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .link {
+    margin-bottom: 30px;
+  }
+}
+.cntct {
+  color: #4b6584;
+  background-color: none;
 }
 </style>

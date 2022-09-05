@@ -15,13 +15,14 @@
         </div>
 
         <!-- Login Form -->
-        <form>
+        <form @submit.prevent="login">
           <input
             type="text"
             id="email"
             class="fadeIn second"
             name="login"
             placeholder="login"
+            v-model="email"
           />
           <input
             type="password"
@@ -29,15 +30,16 @@
             class="fadeIn third"
             name="login"
             placeholder="password"
+            v-model="passwordHash"
           />
-          <input
-            type="submit"
-            class="fadeIn fourth"
-            value="Log In"
-            onclick="event.preventDefault(), sendUserData()"
-          />
+          <button>
+            <input type="submit" class="fadeIn fourth" value="login" />
+          </button>
         </form>
-  <p v-if="showError" id="error">Username or Password is incorrect</p>
+        <div v-if="user">
+          <h1>Welcome {{ user.full_name }}</h1>
+        </div>
+        <!-- <p v-if="showError" id="error">Username or Password is incorrect</p> -->
         <!-- Remind Passowrd -->
         <div id="formFooter">
           <a id="forgotpsw" class="underlineHover" href="#">Forgot Password?</a>
@@ -48,32 +50,25 @@
 </template>
 <script>
 export default {
-  // name: "Login",
-  // components: {},
-  // data() {
-  //   return {
-  //     form: {
-  //       username: "",
-  //       password: "",
-  //     },
-  //     showError: false
-  //   };
-  // },
-  // methods: {
-  //   ...mapActions(["LogIn"]),
-  //   async submit() {
-  //     const User = new FormData();
-  //     User.append("username", this.form.username);
-  //     User.append("password", this.form.password);
-  //     try {
-  //         await this.LogIn(User);
-  //         this.$router.push("/posts");
-  //         this.showError = false
-  //     } catch (error) {
-  //       this.showError = true
-  //     }
-  //   },
-  // },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("login", {
+        email: this.email,
+        password: this.password,
+      });
+    },
+  },
 };
 </script>
 <style scoped>

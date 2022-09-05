@@ -5,10 +5,16 @@ export default createStore({
     users: null,
     products: null,
     // admin: null,
+    cart: [],
+    Token: null,
+    user: null,
   },
   mutations: {
     setUsers: (state, users) => {
       state.users = users;
+    },
+    setUser: (state, user) => {
+      state.user = user;
     },
     setProducts: (state, products) => {
       state.products = products;
@@ -16,16 +22,67 @@ export default createStore({
     setProduct: (state, product) => {
       state.product = product;
     },
+    setCart: (state, cart) => {
+      state.cart = cart;
+    },
+    updateCart: (state, products) => {
+      state.cart.push(products);
+    },
+    setToken: (state, Token) => {
+      state.Token = Token;
+    },
   },
   actions: {
+    // Login
     login: async (context, payload) => {
-      const { email, password } = payload;
-      const response = await fetch(
-        `http://localhost:3000/login?email=${email}&password=${password}`
+      let res = await fetch(
+        "https://candykingdom-api.herokuapp.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: payload.email,
+            password: payload.password,
+          }),
+        }
       );
-      const userData = await response.json();
-      context.commit("setUser", userData[0]);
+      let data = await res.json();
+      console.log(data);
+      if (data.token) {
+        context.commit("setToken", data.token);
+
+        // Verify token
+        //
+        fetch("https://candykingdom-api.herokuapp.com/users/users/verify", {
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": data.token,
+          },
+        })
+          .then((res) => res.json())
+          .then((user) => {
+            context.commit("setUser", user);
+            // window.localStorage.setItem("user", JSON.stringify(user));
+
+            // router.push("/home");
+            console.log(data);
+          });
+      } else {
+        alert("User not found");
+      }
     },
+    // login: async (context, payload) => {
+    //   const { email, password } = payload;
+    //   const response = await fetch(
+    //     `https://candykingdom-api.herokuapp.com/users?email=${email}&password=${password}`
+    //   );
+    //   const userData = await response.json();
+    //   context.commit("setUser", userData);
+    //   console.log(userData);
+    // },
+
     getUsers: async (context) => {
       fetch("https://candykingdom-api.herokuapp.com/users")
         .then((response) => response.json())
@@ -52,18 +109,16 @@ export default createStore({
     },
 
     createUser: async (context, user) => {
-      fetch("https://candykingdom-api.herokuapp.com/users/", {
+      fetch("https://candykingdom-api.herokuapp.com/users/register", {
         method: "POST",
-        body: JSON.stringify({
-          title: "foo",
-          body: "bar",
-        }),
+        body: JSON.stringify(user),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
+      console.log(`User ${(user.full_name, user.email)} created successfully`);
     },
 
     deleteUser: async (context, id) => {
@@ -123,6 +178,11 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setProduct", json));
+    },
+    // add to cart
+    addCart: async (context, id) => {
+      this.state.cart.product.push(id);
+      context.dispatch("updateCart", this.state.cart);
     },
   },
 });

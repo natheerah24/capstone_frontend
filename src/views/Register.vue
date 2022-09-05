@@ -16,16 +16,17 @@
 
         <!-- Register Form -->
         <p onclick="registerPage()"></p>
-        <p onclick="userLogin()" id="userLog"></p>
+        <p onclick="createUser()" id="userLog"></p>
         <div></div>
 
-        <form>
+        <form @submit.prevent="createUser()">
           <input
             type="text"
             id="name"
             class="fadeIn second"
             name="Full-name"
             placeholder="Fullname"
+            v-model="full_name"
           />
           <input
             type="text"
@@ -33,6 +34,7 @@
             class="fadeIn second"
             name="Email"
             placeholder="Email"
+            v-model="email"
           />
           <input
             type="text"
@@ -40,6 +42,7 @@
             class="fadeIn second"
             name="number"
             placeholder="Contact Number"
+            v-model="phone"
           />
           <input
             type="text"
@@ -47,6 +50,7 @@
             class="fadeIn second"
             name="billing_adress"
             placeholder="Billing Address"
+            v-model="billing_address"
           />
           <input
             type="text"
@@ -54,20 +58,34 @@
             class="fadeIn third"
             name="login"
             placeholder="password"
+            v-model="password"
           />
           <input
+            type="text"
+            id="shipping_address"
+            class="fadeIn third"
+            name="login"
+            placeholder="default_shipping_address"
+            v-model="default_shipping_address"
+          />
+          <input
+            type="text"
+            id="country"
+            class="fadeIn third"
+            name="login"
+            placeholder="country"
+            v-model="country"
+          />
+          <!-- <input
             type="text"
             id="password"
             class="fadeIn third"
             name="login"
             placeholder="re-enter password"
-          />
-          <input
-            type="submit"
-            class="fadeIn fourth"
-            value="Sign Up"
-            onclick="event.preventDefault(), registerNewUser()"
-          />
+          /> -->
+          <button>
+            <input type="submit" class="fadeIn fourth" value="Sign Up" />
+          </button>
         </form>
         <p v-if="showError" id="error">Username already exists</p>
       </div>
@@ -77,17 +95,39 @@
 <script>
 export default {
   // name: "Register",
-  // components: {},
-  // data() {
-  //   return {
-  //     form: {
-  //       username: "",
-  //       full_name: "",
-  //       password: "",
-  //     },
-  //     showError: false
-  //   };
-  // },
+  components: {},
+
+  data() {
+    return {
+      full_name: "",
+      email: "",
+      phone: "",
+      billing_address: "",
+      password: "",
+      shippingdefault_shipping_address_address: "",
+      country: "",
+      showError: false,
+    };
+  },
+  methods: {
+    createUser() {
+      this.$store.dispatch("createUser", {
+        email: this.email,
+        password: this.password,
+        full_name: this.full_name,
+        billing_address: this.billing_address,
+        default_shipping_address: this.default_shipping_address,
+        country: this.country,
+        phone: this.phone,
+      });
+    },
+  },
+  computed: {
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
   // methods: {
   //   ...mapActions(["Register"]),
   //   async submit() {
@@ -344,10 +384,10 @@ input[type="text"]:placeholder {
 .wrapper.fadeInDown {
   padding-top: 8rem;
 }
-@media screen and (max-width: 600px){
-section#register[data-v-63ae9146] {
+@media screen and (max-width: 600px) {
+  section#register[data-v-63ae9146] {
     background-color: rgb(255 184 201);
     margin-bottom: 8rem;
-}
+  }
 }
 </style>

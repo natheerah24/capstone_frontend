@@ -173,9 +173,9 @@ a#scroll-btn {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
     clip-path: circle(31.1% at 50% 49%);
-    width: 15rem;
+    width: 5rem;
     height: 27rem;
-    margin-left: 1rem;
+    margin-left: 5rem;
     margin-top: -6rem;
 }
 #about-pic {

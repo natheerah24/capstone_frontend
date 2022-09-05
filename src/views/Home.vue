@@ -65,45 +65,42 @@ a.btn.btn-outline-light.rounded-pill {
 #btn {
   padding-left: 25rem;
   margin-left: 17rem;
-  
 }
 @media screen and (max-width: 300px) {
-#logo{
+  #logo {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
     clip-path: circle(31.1% at 50% 49%);
-    width: 15rem;
     height: 27rem;
-    margin-left: 2rem;
-    margin-top: -6rem;
-}
-#sweetimg {
-    width: 18rem;
-    height: 16rem;
-    margin-top: -20rem;
-    margin-left: 0rem;
+    margin-left: -1rem !important;
+    margin-top: -4rem !important;
+    width: 20rem !important;
+  }
+  #sweetimg {
+    margin-left: -1.5rem !important;
+    width: 20rem !important;
+    height: 15rem !important;
+    margin-top: -18rem !important;
     position: absolute;
-}
-#heading{
-  font-size: 3rem;
-}
-#slogan{
-  font-size: 2rem;
-}
-
+  }
+  #heading {
+    font-size: 3rem;
+  }
+  #slogan {
+    font-size: 2rem;
+  }
 }
 @media screen and (max-width: 600px) {
-  #logo{
+  #logo {
     margin-left: 4rem;
     margin-top: -10rem;
     width: 30rem;
   }
-  #sweetimg{
+  #sweetimg {
     margin-left: 0%;
     width: 37rem;
     height: 30rem;
     margin-top: -36rem;
   }
 }
-
 </style>
