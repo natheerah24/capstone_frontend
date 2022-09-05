@@ -60,7 +60,7 @@ nav a.router-link-exact-active {
   color: rgb(212 20 66);
 }
 i.fa-solid.fa-candy-cane {
-  color:  rgb(212 20 66);
+  color: rgb(212 20 66);
 }
 @media only screen and (max-width: 600px) {
   .navbar {

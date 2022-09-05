@@ -30,7 +30,7 @@
             class="fadeIn third"
             name="login"
             placeholder="password"
-            v-model="passwordHash"
+            v-model="password"
           />
           <button>
             <input type="submit" class="fadeIn fourth" value="login" />
@@ -42,7 +42,7 @@
         <!-- <p v-if="showError" id="error">Username or Password is incorrect</p> -->
         <!-- Remind Passowrd -->
         <div id="formFooter">
-          <a id="forgotpsw" class="underlineHover" href="#">Forgot Password?</a>
+          <!-- <a id="forgotpsw" class="underlineHover" href="#">Forgot Password?</a> -->
         </div>
       </div>
     </div>
