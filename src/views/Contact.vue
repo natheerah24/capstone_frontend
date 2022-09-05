@@ -77,13 +77,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="demo">
-      <p scoped class="cntct">connect with us:</p>
+ <div class="demo">
+      <p  class="cntct">connect with us:</p>
       <a href="https://twitter.com/CandyKingdom14" class="link" target="_blank">
         <span><i class="fa-brands fa-twitter"></i></span>
       </a>
@@ -105,6 +100,12 @@
         <span><i class="fa-solid fa-envelope"></i></span>
       </a>
     </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
   </section>
 </template>
 <script>
@@ -119,9 +120,9 @@ export default {
 };
 </script>
 <style scoped>
-p {
+/* p {
   background-color: #cecece;
-}
+} */
 #person {
   width: 33rem;
   height: 46rem;
@@ -372,19 +373,47 @@ div#bg {
   text-shadow: -3px -3px rgba(235, 59, 90, 0.2);
   font-size: 25px;
 }
-.demo {
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 25rem;
-  gap: 10px;
+.demo[data-v-df212a54] {
+    display: flex;
+    justify-content: center;
+    margin-left: 0rem;
+    gap: 10px;
+    margin-top: 3rem;
 }
 @media only screen and (max-width: 767px) {
   .link {
     margin-bottom: 30px;
   }
 }
+@media only screen and (max-width: 375px){
+  #contact-img[data-v-df212a54] {
+    width: 23rem;
+    height: 33rem;
+    margin-left: 0rem;
+    margin-top: -9rem;
+}
+#person[data-v-df212a54][data-v-df212a54] {
+    width: 22rem;
+    height: 31rem;
+    margin-top: -30rem;
+    margin-left: -1rem;
+position: absolute;
+}
+a#scroll-btn[data-v-df212a54][data-v-df212a54] {
+    margin-left: 10rem;
+}
+.col-md-6 {
+    margin-bottom: 1rem;
+}
+.demo[data-v-df212a54] {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 0%;
+    gap: 10px;
+}
+}
 .cntct {
   color: #4b6584;
-  background-color: none;
+ 
 }
 </style>

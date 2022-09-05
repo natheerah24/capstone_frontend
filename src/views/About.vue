@@ -260,6 +260,44 @@ p[data-v-039c5b43] {
 #desc{
   margin-left: 8rem;
 }
-
+}
+@media screen and (max-width: 375px){
+  #about-img[data-v-039c5b43] {
+    width: 22rem;
+    height: 34rem;
+    margin-left: 0rem;
+    margin-top: -3rem;
+}
+#about-pic[data-v-039c5b43] {
+    width: 15rem;
+    height: 25rem;
+    margin-left: 3rem;
+    margin-top: -29rem;
+}
+#heading{
+  
+    padding-left: 5rem;
+}
+a#scroll-btn[data-v-039c5b43] {
+    margin-left: 9rem;
+}
+#about-head[data-v-039c5b43] {
+    margin-left: 2rem;
+}
+p[data-v-039c5b43][data-v-039c5b43] {
+    margin-left: 2rem;
+    font-size: 15px;
+}
+#desc[data-v-039c5b43] {
+    margin-left: 1rem;
+}
+ul{
+  padding-left: 0%;
+  font-size: 15px;
+}
+img#bottom-img{
+      margin-top: 5rem;
+    margin-left: 4rem;
+}
 }
 </style>

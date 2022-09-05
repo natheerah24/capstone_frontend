@@ -37,7 +37,7 @@
           </button>
         </form>
         <div v-if="user">
-          <h1>Welcome {{ user.full_name }}</h1>
+          <h1 class="welcome">Welcome {{ user.full_name }}</h1>
         </div>
         <!-- <p v-if="showError" id="error">Username or Password is incorrect</p> -->
         <!-- Remind Passowrd -->
@@ -322,5 +322,14 @@ input[type="password"]:placeholder {
 
 * {
   box-sizing: border-box;
+}
+.welcome{
+   font-family: "Lato", sans-serif;
+  color: #4b6584;
+  font-size: 24px;
+}
+button{
+  border: none;
+  display: contents;
 }
 </style>

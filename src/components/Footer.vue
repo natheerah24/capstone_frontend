@@ -11,8 +11,6 @@ export default {};
 #footer {
   width: 100%;
   height: 5vh;
-  margin-top: 0;
-  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   background-color: rgb(255 184 201);

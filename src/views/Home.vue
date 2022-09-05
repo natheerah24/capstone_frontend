@@ -103,4 +103,18 @@ a.btn.btn-outline-light.rounded-pill {
     margin-top: -36rem;
   }
 }
+@media screen and (max-width: 375px){
+#logo[data-v-fae5bece] {
+    margin-left: 2rem;
+    margin-top: -7rem;
+    width: 18rem;
+    height: 37rem;
+}
+#sweetimg[data-v-fae5bece] {
+    margin-left: -4rem;
+    width: 29rem;
+    height: 26rem;
+    margin-top: -27rem;
+}
+}
 </style>

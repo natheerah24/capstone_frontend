@@ -83,7 +83,7 @@
             name="login"
             placeholder="re-enter password"
           /> -->
-          <button>
+          <button class="welcome">
             <input type="submit" class="fadeIn fourth" value="Sign Up" />
           </button>
         </form>
@@ -382,7 +382,7 @@ input[type="text"]:placeholder {
   box-sizing: border-box;
 }
 .wrapper.fadeInDown {
-  padding-top: 8rem;
+  padding-top: 5rem;
 }
 @media screen and (max-width: 600px) {
   section#register[data-v-63ae9146] {
@@ -390,4 +390,16 @@ input[type="text"]:placeholder {
     margin-bottom: 8rem;
   }
 }
+button{
+  border: none;
+  display: contents;
+}
+@media screen and (max-width: 375px){
+  section#register[data-v-63ae9146][data-v-63ae9146] {
+    background-color: rgb(255 184 201);
+    margin-bottom: 10rem;
+}
+}
+
+
 </style>
