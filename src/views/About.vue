@@ -72,7 +72,7 @@ export default {
 }
 #bottom-bg{
   background-color: white;
-  max-height: 84vh;
+  max-height: 110vh;
 
 }
 #about-img {
@@ -173,10 +173,10 @@ a#scroll-btn {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
     clip-path: circle(31.1% at 50% 49%);
-    width: 5rem;
+    width: 26rem;
     height: 27rem;
-    margin-left: 5rem;
-    margin-top: -6rem;
+    margin-left: -5rem;
+    margin-top: -1rem;
 }
 #about-pic {
     width: 11rem;
@@ -232,7 +232,7 @@ ul[data-v-039c5b43] {
     margin-left: -6rem;
 }
 }
-@media screen and (max-width: 600px){
+/* @media screen and (max-width: 600px){
   a#scroll-btn {
     margin-left:15rem;
   }
@@ -260,19 +260,19 @@ p[data-v-039c5b43] {
 #desc{
   margin-left: 8rem;
 }
-}
+} */
 @media screen and (max-width: 375px){
   #about-img[data-v-039c5b43] {
-    width: 22rem;
-    height: 34rem;
-    margin-left: 0rem;
-    margin-top: -3rem;
+    width: 22rem !important;
+    height: 34rem !important;
+    margin-left: 0rem !important;
+    margin-top: -3rem !important;
 }
 #about-pic[data-v-039c5b43] {
-    width: 15rem;
-    height: 25rem;
-    margin-left: 3rem;
-    margin-top: -29rem;
+    width: 15rem !important;
+    height: 25rem !important;
+    margin-left: 3rem !important;
+    margin-top: -29rem !important;
 }
 #heading{
   

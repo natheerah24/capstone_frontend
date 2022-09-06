@@ -1,3 +1,4 @@
+import router from "@/router";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -72,6 +73,7 @@ export default createStore({
       } else {
         alert("User not found");
       }
+      router.push("/users");
     },
     // login: async (context, payload) => {
     //   const { email, password } = payload;

@@ -87,7 +87,10 @@
             <input type="submit" class="fadeIn fourth" value="Sign Up" />
           </button>
         </form>
-        <p v-if="showError" id="error">Username already exists</p>
+        <!-- <p v-if="showError" id="error">Username already exists</p> -->
+        <div v-if="user">
+          <h1 class="welcome">Welcome {{ user.full_name }}</h1>
+        </div>
       </div>
     </div>
   </section>
@@ -390,16 +393,14 @@ input[type="text"]:placeholder {
     margin-bottom: 8rem;
   }
 }
-button{
+button {
   border: none;
   display: contents;
 }
-@media screen and (max-width: 375px){
+@media screen and (max-width: 375px) {
   section#register[data-v-63ae9146][data-v-63ae9146] {
     background-color: rgb(255 184 201);
     margin-bottom: 10rem;
+  }
 }
-}
-
-
 </style>

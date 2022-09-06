@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="Toggler">
         <ul id="ul" class="navbar-nav mb-1 mb-lg-0">
-          <li class="nav-item"><router-link to="/">Home</router-link></li>
+          <li class="nav-item"><router-link to="/home">Home</router-link></li>
           <li class="nav-item">
             <router-link to="/about">About</router-link>
           </li>
@@ -28,15 +28,35 @@
             <router-link to="/contact">Contact</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/login">Login</router-link>
+            <router-link to="/">Login</router-link>
           </li>
-          <li class="nav-item"><router-link to="/cart">Cart</router-link></li>
+          <li class="nav-item">
+            <router-link to="/cart"
+              ><i class="fa-solid fa-bag-shopping"></i
+            ></router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/users"
+              ><i class="fa-regular fa-user"></i
+            ></router-link>
+          </li>
         </ul>
       </div>
     </div>
+    <!-- <button type="button" @click="refresh" id="log-out">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </button> -->
   </nav>
 </template>
-<script></script>
+<script>
+export default {
+  methods: {
+    refresh() {
+      window.location.reload;
+    },
+  },
+};
+</script>
 <style scoped>
 .navbar {
   background-color: rgb(255 184 201);
@@ -72,5 +92,16 @@ i.fa-solid.fa-candy-cane {
   html {
     overflow-x: hidden;
   }
+}
+button#log-out {
+  margin-left: -5rem;
+}
+button#log-out {
+  background-color: rgb(212 20 66);
+  border: none;
+  border-radius: 25%;
+}
+i.fa-solid.fa-arrow-right-from-bracket {
+  color: white;
 }
 </style>

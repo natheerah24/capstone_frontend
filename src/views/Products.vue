@@ -53,6 +53,7 @@
           </div>
         </div>
       </div>
+      <!-- change loader to eating chocolate gif -->
       <div v-else id="loader" class="mx-auto"></div>
     </div>
   </section>
@@ -89,6 +90,7 @@ export default {
       });
     },
   },
+  
 };
 </script>
 <style scoped>
