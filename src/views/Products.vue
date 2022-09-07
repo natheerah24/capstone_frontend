@@ -90,7 +90,6 @@ export default {
       });
     },
   },
-  
 };
 </script>
 <style scoped>
@@ -119,7 +118,13 @@ html {
 .product-grid:hover {
   border-color: rgb(212 20 66);
 }
-.product-grid .product-image[data-v-7177119e] {
+.product-image {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+.product-grid {
   position: relative;
   display: flex;
   justify-content: space-evenly;
