@@ -121,12 +121,15 @@ html {
 .product-image {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   margin-top: 3rem;
 }
 .product-grid {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   margin-top: 3rem;
 }
