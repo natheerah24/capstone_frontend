@@ -3,7 +3,7 @@
     <div class="wrapper fadeInDown">
       <div id="formContent">
         <!-- Tabs Titles -->
-        <router-link to="/login">
+        <router-link to="/">
           <h2 class="inactive underlineHover">Sign In</h2></router-link
         >
 

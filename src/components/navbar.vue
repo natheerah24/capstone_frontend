@@ -28,7 +28,7 @@
             <router-link to="/contact">Contact</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/">Login</router-link>
+            <router-link to="/">Sign in</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/cart"

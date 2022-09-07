@@ -1,6 +1,9 @@
 <template>
   <section id="products">
     <h1 id="heading">Products</h1>
+    <select name="category" id="" v-model="category">
+    <input type="text">
+    </select>
     <div class="wrap">
       <div class="search">
         <input
@@ -12,6 +15,7 @@
         <button type="submit" class="searchButton">
           <i class="fa fa-search"></i>
         </button>
+        <button @click="sortByPrice" id="sort">Sort by Price</button>
       </div>
     </div>
     <div class="container">
@@ -63,11 +67,16 @@ export default {
   data() {
     return {
       search: "",
+      category: "ALL",
     };
   },
   methods: {
     addCart(product) {
       this.$store.commit("updateCart", product);
+    },
+    sortByPrice() {
+      //gives function a name (does not need to be the same as the name given in the store)
+      this.$store.commit("sortByPrice"); //runs the function in the store
     },
   },
   mounted() {
@@ -85,6 +94,9 @@ export default {
         if (
           !product.category?.toLowerCase().includes(this.search.toLowerCase())
         )
+          isMatch = false;
+        return isMatch;
+        if (this.category !== "All" && item.category !== this.category)
           isMatch = false;
         return isMatch;
       });
@@ -353,5 +365,13 @@ html {
     display: flex;
     justify-content: space-evenly;
   }
+}
+button#sort {
+  border: none;
+  width: 13rem;
+  margin-left: 1rem;
+  background-color: rgb(212 20 66);
+  color: white;
+  border-radius: 6px;
 }
 </style>

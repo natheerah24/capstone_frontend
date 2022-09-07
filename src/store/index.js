@@ -1,14 +1,17 @@
 import router from "@/router";
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
     users: null,
     products: null,
+    product: null,
     // admin: null,
     cart: [],
     Token: null,
     user: null,
+    asc: true,
   },
   mutations: {
     setUsers: (state, users) => {
@@ -31,6 +34,19 @@ export default createStore({
     },
     setToken: (state, Token) => {
       state.Token = Token;
+    },
+    Logout(state) {
+      (state.user = ""), (state.Token = "");
+    },
+    sortByPrice: (state) => {
+      state.products.sort((a, b) => {
+        return a.price - b.price; //like vanilla javascript, this is how you make a sort function
+      });
+      if (!state.asc) {
+        //if the asc is not true, it reverses the current order of the list
+        state.products.reverse(); // reverts the order
+      }
+      state.asc = !state.asc; //states that when the function is run, asc becomes false instead of true
     },
   },
   actions: {
@@ -95,19 +111,16 @@ export default createStore({
         .then((res) => res.json())
         .then((user) => context.commit("setUser", user));
     },
-    updateUser: async (context, User) => {
-      fetch("https://candykingdom-api.herokuapp.com/users/" + id, {
+    updateUser: async (context, id) => {
+      fetch("http://localhost:3001/users/" + id, {
         method: "PUT",
-        body: JSON.stringify({
-          title: "foo",
-          body: "bar",
-        }),
+        body: JSON.stringify(user),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((user) => context.commit("setUser", user));
     },
 
     createUser: async (context, user) => {
@@ -187,4 +200,5 @@ export default createStore({
       context.dispatch("updateCart", this.state.cart);
     },
   },
+  plugins: [createPersistedState()],
 });

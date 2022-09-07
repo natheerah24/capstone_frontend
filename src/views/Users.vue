@@ -79,38 +79,78 @@
                   </div>
                   <div class="modal-body">
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="full_name"
+                      />
                       <span class="label">Fullname</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="email"
+                      />
                       <span class="label">Email</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="billing_address"
+                      />
                       <span class="label">Billing Address</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="default_shipping_address"
+                      />
                       <span class="label">Shipping Address</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="country"
+                      />
                       <span class="label">Country</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
-                      <input placeholder="" id="inp" type="text" />
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="phone"
+                      />
                       <span class="label">Phone</span>
                       <span class="focus-bg"></span>
                     </label>
                     <label class="inp" for="inp">
                       <input placeholder="" id="inp" type="text" />
                       <span class="label">User Type</span>
+                      <span class="focus-bg"></span>
+                    </label>
+                    <label class="inp" for="inp">
+                      <input
+                        placeholder=""
+                        id="inp"
+                        type="text"
+                        v-model="password"
+                      />
+                      <span class="label">Password</span>
                       <span class="focus-bg"></span>
                     </label>
                   </div>
@@ -122,7 +162,11 @@
                     >
                       Close
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      @click="updateUser(id)"
+                    >
                       Save changes
                     </button>
                   </div>
@@ -137,7 +181,7 @@
               class="cardImage"
               src="https://i.postimg.cc/TYcp2P3w/logout.png"
             />
-            <button class="btn btn-light" onClick="{userLogout}">Logout</button>
+            <button class="btn btn-light" @click="Logout">Logout</button>
           </div>
         </div>
       </div>
@@ -146,12 +190,42 @@
 </template>
 <script>
 export default {
-  mounted() {
-    this.$store.dispatch("getUsers");
-  },
+  props:["id"],
   computed: {
     user() {
       return this.$store.state.user;
+    },
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      full_name: "",
+      billing_address: "",
+      default_shipping_address: "",
+      country: "",
+      phone: "",
+    };
+  },
+  mounted() {
+    console.log(this.$route.params.id);
+    this.$store.dispatch("getUsers",this.$route.params.id);
+  },
+  methods: {
+    updateUser() {
+      this.$store.dispatch("updateUser", {
+        email: this.email,
+        password: this.password,
+        full_name: this.full_name,
+        billing_address: this.billing_address,
+        default_shipping_address: this.default_shipping_address,
+        country: this.country,
+        phone: this.phone,
+      });
+    },
+    Logout() {
+      this.$store.commit("Logout");
+      this.$router.push("/");
     },
   },
 };
@@ -254,9 +328,6 @@ ul {
   .addressHead {
     margin-top: 10px;
     text-align: center;
-  }
-  .dashboardCards {
-    display: none;
   }
 }
 div#users {

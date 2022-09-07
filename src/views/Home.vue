@@ -71,7 +71,7 @@ a.btn.btn-outline-light.rounded-pill {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
     clip-path: circle(31.1% at 50% 49%);
-    height: 27rem;
+    height: 27rem !important;
     margin-left: -1rem !important;
     margin-top: -4rem !important;
     width: 20rem !important;
@@ -89,7 +89,6 @@ a.btn.btn-outline-light.rounded-pill {
   #slogan {
     font-size: 2rem;
   }
-  
 }
 /* @media screen and (max-width: 600px) {
   #logo {
@@ -106,16 +105,16 @@ a.btn.btn-outline-light.rounded-pill {
 } */
 @media screen and (max-width: 375px) {
   #logo[data-v-fae5bece] {
-    margin-left: 2rem;
-    margin-top: -7rem;
-    width: 18rem;
-    /* height: 37rem; */
+    height: 27rem !important;
+    margin-left: -3rem !important;
+    margin-top: -4rem !important;
+    width: 30rem !important;
   }
   #sweetimg[data-v-fae5bece] {
-    margin-left: -4rem;
-    width: 29rem;
-    height: 26rem;
-    margin-top: -27rem;
+    margin-left: -4rem !important;
+    width: 29rem !important;
+    height: 26rem !important;
+    margin-top: -27rem !important;
   }
 }
 </style>
