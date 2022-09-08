@@ -17,12 +17,13 @@
         <!-- Login Form -->
         <form @submit.prevent="login">
           <input
-            type="text"
+            type="email"
             id="email"
             class="fadeIn second"
             name="login"
             placeholder="login"
             v-model="email"
+            required
           />
           <input
             type="password"
@@ -31,6 +32,7 @@
             name="login"
             placeholder="password"
             v-model="password"
+            required
           />
           <button>
             <input type="submit" class="fadeIn fourth" value="login" />
@@ -172,7 +174,7 @@ input[type="reset"]:active {
   transform: scale(0.95);
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
   background-color: #f6f6f6;
   border: none;
@@ -323,12 +325,12 @@ input[type="password"]:placeholder {
 * {
   box-sizing: border-box;
 }
-.welcome{
-   font-family: "Lato", sans-serif;
+.welcome {
+  font-family: "Lato", sans-serif;
   color: #4b6584;
   font-size: 24px;
 }
-button{
+button {
   border: none;
   display: contents;
 }

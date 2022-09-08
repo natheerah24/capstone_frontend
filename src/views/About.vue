@@ -10,7 +10,7 @@
           ></a>
         </div>
 
-        <div class="col">
+        <div class="col-md-6">
           <div id="about-img"></div>
           <img
             id="about-pic"
@@ -80,13 +80,13 @@ export default {
   clip-path: circle(31.1% at 50% 49%);
   width: 40rem;
   height: 53rem;
-  margin-left: 40rem; 
- margin-top: -23rem;
+  /* margin-left: 40rem; 
+ margin-top: -23rem; */
 }
 #about-pic {
   width: 27rem;
   height: 39rem;
-  margin-left: 46rem;
+  margin-left: 6rem;
  margin-top: -45rem;
   position: absolute;
 }
@@ -156,7 +156,7 @@ ul {
   
     margin-left: 4rem;
 }
-@media screen and (max-width: 300px) {
+/* @media screen and (max-width: 300px) {
   #heading {
     color: white;
     font-family: "Titan One";
@@ -203,7 +203,7 @@ img#bottom-img {
     max-width: 80%;
     height: 70%;
     border-radius: 5rem;
-    /* padding-left: 5rem; */
+    
     margin-top: 5rem;
     margin-left: 3rem;
 }
@@ -231,8 +231,8 @@ ul[data-v-039c5b43] {
     padding-right: 0rem;
     margin-left: -6rem;
 }
-}
-/* @media screen and (max-width: 600px){
+} */
+@media screen and (max-width: 600px){
   a#scroll-btn {
     margin-left:15rem;
   }
@@ -260,8 +260,8 @@ p[data-v-039c5b43] {
 #desc{
   margin-left: 8rem;
 }
-} */
-@media screen and (max-width: 375px){
+}
+/* @media screen and (max-width: 375px){
   #about-img[data-v-039c5b43] {
     width: 22rem !important;
     height: 34rem !important;
@@ -299,5 +299,56 @@ img#bottom-img{
       margin-top: 5rem;
     margin-left: 4rem;
 }
+} */
+/* uncomment bottom one */
+/* @media screen and (max-width: 300px){
+
+#about-img{
+    width: 22rem;
+    height: 38rem;
+    margin-left: 0rem;
+    margin-top: -5rem;
 }
+#about-pic{
+    width: 17rem;
+    height: 27rem;
+    margin-left: 2rem;
+    margin-top: -33rem;
+}
+#heading{
+    padding-left: 4rem;
+}
+a#scroll-btn{
+    margin-left: 9rem;
+}
+#about-head{
+    margin-left: 2rem;
+}
+p{
+    margin-left: 2rem;
+    font-size: 18px;
+}
+#desc{
+    margin-left: 1rem;
+}
+ul {
+    list-style: none;
+    font-family: "Lato", sans-serif;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0rem;
+    margin-left: -6rem;
+    color: #4b6584;
+}
+img#bottom-img{
+    max-width: 84%;
+    height: 70%;
+    border-radius: 5rem;
+   
+    margin-top: 4rem;
+    margin-left: 4rem;
+}
+} */
 </style>

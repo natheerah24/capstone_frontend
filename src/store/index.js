@@ -63,10 +63,11 @@ export default createStore({
             email: payload.email,
             password: payload.password,
           }),
+          mode: "no-cors",
         }
       );
       let data = await res.json();
-      console.log(data);
+      alert(data);
       if (data.token) {
         context.commit("setToken", data.token);
 
@@ -161,6 +162,39 @@ export default createStore({
         .then((response) => response.json())
         .then((json) => context.commit("setProduct", json));
     },
+    createProduct: async (context, product) => {
+      fetch("https://candykingdom-api.herokuapp.com/products", {
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {
+          // "Access-Control-Allow-Origin": "*",
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // alert(products);
+          // window.location.reload();
+          context.commit("setProducts", data);
+        });
+    },
+    deleteProduct: async (context, id) => {
+      // fetch("https://candykingdom-api.herokuapp.com/products/" + id, {
+      //   method: "DELETE",
+      //   headers: {
+      //     // "Access-Control-Allow-Origin": "*",
+      //     "Content-type": "application/json; charset=UTF-8",
+      //   },
+      //   // mode: "no-cors",
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     alert(data);
+      //     window.location.reload();
+      //   });
+      alert(id);
+    },
+
     // update
     updateProduct: async (context, product) => {
       const {
@@ -199,6 +233,85 @@ export default createStore({
       this.state.cart.product.push(id);
       context.dispatch("updateCart", this.state.cart);
     },
+    //  getcart: (context, id) => {
+    //   if (context.state.user === null) {
+    //     alert("Please Login");
+    //   } else {
+    //     id = context.state.user.user_id;
+    //     fetch("http://localhost:6869/users/" + id + "/cart", {
+    //       // fetch("https://capstone-fin.herokuapp.com/users/" + id + "/cart", {
+    //       method: "GET",
+    //       headers: {
+    //         "Content-type": "application/json; charset=UTF-8",
+    //         "x-auth-token": context.state.token,
+    //       },
+    //     })
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         // console.log(data)
+    //         context.commit("setcart", data);
+    //       });
+    //   }
+    // },
+    // addTocart: async (context, product, id) => {
+    //   console.log(product.product_id);
+    //   id = context.state.user.user_id;
+    //   // console.log(product);
+    //   await fetch("http://localhost:6869/users/" + id + "/cart", {
+    //     // await fetch("https://capstone-fin.herokuapp.com/users/" + id + "/cart", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       product_id: product.product_id,
+    //     }),
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //       "x-auth-token": context.state.token,
+    //     },
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       context.dispatch("getcart", id);
+    //     });
+    // },
+    // clearcart: async (context, id) => {
+    //   id = context.state.user.user_id;
+    //   await fetch("http://localhost:6869/users/" + id + "/cart", {
+    //     // await fetch("https://capstone-fin.herokuapp.com/users/ id /cart", {
+    //     method: "DELETE",
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //       "x-auth-token": context.state.token,
+    //     },
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       context.dispatch("getcart", id);
+    //     });
+    // },
+    // deletecartItem: async (context, list, id) => {
+    //   id = context.state.user.id;
+    //   await fetch(
+    //     "http://localhost:6869/users/" +
+    //       id +
+    //       "/cart/" +
+    //       list,
+    //     {
+    //       method: "DELETE",
+    //       headers: {
+    //         "Content-type": "application/json; charset=UTF-8",
+    //         "x-auth-token": context.state.token,
+    //       },
+    //     }
+    //   )
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       context.dispatch("getcart", id);
+    //     });
+    // },
   },
+
   plugins: [createPersistedState()],
 });

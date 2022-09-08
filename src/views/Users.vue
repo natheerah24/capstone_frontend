@@ -190,10 +190,13 @@
 </template>
 <script>
 export default {
-  props:["id"],
+  props: ["id"],
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    users() {
+      return this.$store.state.users;
     },
   },
   data() {
@@ -209,7 +212,7 @@ export default {
   },
   mounted() {
     console.log(this.$route.params.id);
-    this.$store.dispatch("getUsers",this.$route.params.id);
+    this.$store.dispatch("getUsers", this.$route.params.id);
   },
   methods: {
     updateUser() {

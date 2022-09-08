@@ -35,10 +35,10 @@ a.btn.btn-outline-light.rounded-pill {
 #logo {
   background-color: rgb(255 165 186);
   clip-path: circle(31.1% at 50% 49%);
-  width: 40rem;
-  height: 53rem;
-  margin-left: 25rem;
-  margin-top: -6rem;
+  width: 40rem !important;
+  height: 53rem !important;
+  margin-left: 25rem !important;
+  margin-top: -6rem !important;
 }
 #heading {
   font-family: "Titan One";
@@ -49,10 +49,10 @@ a.btn.btn-outline-light.rounded-pill {
   text-align: center;
 }
 #sweetimg {
-  width: 40rem;
-  height: 33rem;
-  margin-top: -39rem;
-  margin-left: 24rem;
+  width: 40rem !important;
+  height: 33rem !important;
+  margin-top: -39rem !important;
+  margin-left: 24rem !important;
   position: absolute;
 }
 #slogan {
@@ -66,7 +66,7 @@ a.btn.btn-outline-light.rounded-pill {
   padding-left: 25rem;
   margin-left: 17rem;
 }
-@media screen and (max-width: 300px) {
+/* @media screen and (max-width: 300px) {
   #logo {
     background-color: rgb(255 165 186);
     -webkit-clip-path: circle(31.1% at 50% 49%);
@@ -89,8 +89,8 @@ a.btn.btn-outline-light.rounded-pill {
   #slogan {
     font-size: 2rem;
   }
-}
-/* @media screen and (max-width: 600px) {
+} */
+@media screen and (max-width: 600px) {
   #logo {
     margin-left: 4rem;
     margin-top: -10rem;
@@ -102,19 +102,33 @@ a.btn.btn-outline-light.rounded-pill {
     height: 30rem;
     margin-top: -36rem;
   }
-} */
-@media screen and (max-width: 375px) {
-  #logo[data-v-fae5bece] {
+}
+/* @media screen and (max-width: 375px) {
+  #logo {
     height: 27rem !important;
     margin-left: -3rem !important;
     margin-top: -4rem !important;
     width: 30rem !important;
   }
-  #sweetimg[data-v-fae5bece] {
+  #sweetimg {
     margin-left: -4rem !important;
     width: 29rem !important;
     height: 26rem !important;
     margin-top: -27rem !important;
   }
-}
+} */
+/* @media screen and (min-width: 300px) {
+  #logo {
+    margin-left: -2rem ;
+    margin-top: -4rem ;
+    width: 27rem ;
+    height: 30rem ;
+  }
+  #sweetimg {
+    margin-left: -2rem ;
+    width: 26rem ;
+    height: 22rem ;
+    margin-top: -23rem ;
+  }
+} */
 </style>

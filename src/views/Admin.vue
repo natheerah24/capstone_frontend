@@ -112,7 +112,7 @@
 
           <td v-for="(item, index) in list" :key="index">
             {{ user.user_id }}
-            <button @click="deleteFromList(index)">
+            <button @click="deleteUser(id)">
               <i class="fa-solid fa-trash"></i>
             </button>
           </td>
@@ -151,47 +151,52 @@
           </div>
           <div class="modal-body">
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="number" v-model="sku" />
               <span class="label">SKU</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="text" v-model="name" />
               <span class="label">Name</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="number" v-model="price" />
               <span class="label">Price</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="number" v-model="weight" />
               <span class="label"> Weight</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input
+                placeholder=""
+                id="inp"
+                type="text"
+                v-model="descriptions"
+              />
               <span class="label">Description</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="text" v-model="image" />
               <span class="label">Image</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="text" v-model="category" />
               <span class="label"> Category</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="text" v-model="country" />
               <span class="label"> Country</span>
               <span class="focus-bg"></span>
             </label>
             <label class="inp" for="inp">
-              <input placeholder="" id="inp" type="text" />
+              <input placeholder="" id="inp" type="number" v-model="stock" />
               <span class="label"> Stock</span>
               <span class="focus-bg"></span>
             </label>
@@ -204,7 +209,13 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              @click="createProduct"
+            >
+              Save changes
+            </button>
           </div>
         </div>
       </div>
@@ -231,6 +242,7 @@
           <th scope="row">{{ product.product_id }}</th>
           <td>{{ product.sku }}</td>
           <td>{{ product.name }}</td>
+          <td>{{ product.product_id }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.weight }}</td>
           <td>{{ product.descriptions }}</td>
@@ -239,7 +251,9 @@
           <td>{{ product.country }}</td>
           <td>{{ product.stock }}</td>
           <td><i class="fa-solid fa-pen"></i></td>
-          <td><i class="fa-solid fa-trash"></i></td>
+          <button @click="deleteProduct(product.product_id)">
+            <td><i class="fa-solid fa-trash"></i></td>
+          </button>
         </tr>
       </tbody>
     </table>
@@ -247,7 +261,7 @@
 </template>
 <script>
 export default {
-  props: ["id"],
+  // props: ["id"],
   computed: {
     products() {
       return this.$store.state.products;
@@ -257,22 +271,51 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$route.params);
-    this.$store.dispatch("getProducts", this.$route.params);
-    console.log(this.$route.params);
-    this.$store.dispatch("getUsers", this.$route.params);
+    // console.log(this.$route.params);
+    // this.$store.dispatch("getProducts", this.$route.params.id);
+    // console.log(this.$route.params);
+    // // this.$store.dispatch("getUsers", this.$route.params);
+    return this.$store.dispatch("getProducts");
+    // return this.$store.dispatch("getUser");
   },
   data() {
     return {
-      list: ["john", "doe", "jane"]
+      sku: "",
+      name: "",
+      price: "",
+      weight: "",
+      descriptions: "",
+      image: "",
+      category: "",
+      country: "",
+      stock: "",
     };
   },
   methods: {
-    deleteFromList(index) {
-      this.list.splice(index, 1);
-    }
-  }
-
+    createProduct() {
+      return this.$store.dispatch("createProduct", {
+        sku: this.sku,
+        name: this.name,
+        price: this.price,
+        weight: this.weight,
+        descriptions: this.descriptions,
+        image: this.image,
+        category: this.category,
+        country: this.country,
+        stock: this.stock,
+      });
+    },
+    deleteProduct(id) {
+      id = this.id;
+      return this.$store.dispatch("deleteProduct");
+    },
+    product() {
+      return this.$store.state.product;
+    },
+    products() {
+      return this.$store.state.products;
+    },
+  },
 };
 </script>
 <style scoped>

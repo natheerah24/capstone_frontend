@@ -2,7 +2,12 @@
   <section id="products">
     <h1 id="heading">Products</h1>
     <select name="category" id="" v-model="category">
-    <input type="text">
+      <option value="All" selected>All</option>
+      <option value="chips">Chips</option>
+      <option value="sweets">Sweets</option>
+      <option value="chocolates">Chocolates</option>
+      <option value="biscuits">Biscuits</option>
+      <option value="beverages">Beverages</option>
     </select>
     <div class="wrap">
       <div class="search">
@@ -67,7 +72,7 @@ export default {
   data() {
     return {
       search: "",
-      category: "ALL",
+      category: "All",
     };
   },
   methods: {
@@ -95,8 +100,7 @@ export default {
           !product.category?.toLowerCase().includes(this.search.toLowerCase())
         )
           isMatch = false;
-        return isMatch;
-        if (this.category !== "All" && item.category !== this.category)
+        if (this.category !== "All" && product.category !== this.category)
           isMatch = false;
         return isMatch;
       });
@@ -357,6 +361,10 @@ html {
     color: rgb(212 20 66);
     text-align: center;
     padding-bottom: 7rem;
+  }
+  .wrap {
+    width: 30%;
+    position: absolute;
   }
 }
 @media screen and (max-width: 300px) {

@@ -261,7 +261,7 @@ div#bg {
   }
 }
 @media only screen and (max-width: 479px) {
-  #heading[data-v-df212a54] {
+  #heading{
     color: white;
     font-family: "Titan One";
     font-size: 3rem;
@@ -289,7 +289,7 @@ div#bg {
     margin-top: -24rem;
     position: absolute;
   }
-  #title-2[data-v-df212a54] {
+  #title-2 {
     font-family: "Titan One";
     font-size: 46px;
     line-height: 60px;
@@ -299,7 +299,7 @@ div#bg {
     display: flex;
     flex-direction: row;
   }
-  .form-container[data-v-df212a54] {
+  .form-container{
     padding: 50px 27px 70px;
   }
   .container-fluid {
@@ -326,7 +326,7 @@ div#bg {
     margin-left: 6rem;
     margin-top: -14rem;
   }
-  #person[data-v-df212a54] {
+  #person{
     width: 29rem;
     height: 40rem;
     margin-top: -41rem;
@@ -337,7 +337,7 @@ div#bg {
     padding-left: 7rem;
     padding-top: 0rem;
   }
-  a#scroll-btn[data-v-df212a54] {
+  a#scroll-btn {
     margin-left: 17rem;
   }
   .container-fluid {
@@ -373,7 +373,7 @@ div#bg {
   text-shadow: -3px -3px rgba(235, 59, 90, 0.2);
   font-size: 25px;
 }
-.demo[data-v-df212a54] {
+.demo{
     display: flex;
     justify-content: center;
     margin-left: 0rem;
@@ -385,27 +385,27 @@ div#bg {
     margin-bottom: 30px;
   }
 }
-@media only screen and (max-width: 375px){
-  #contact-img[data-v-df212a54] {
+@media only screen and (max-width: 300px){
+  #contact-img{
     width: 23rem;
     height: 33rem;
     margin-left: 0rem;
     margin-top: -9rem;
 }
-#person[data-v-df212a54][data-v-df212a54] {
+#person{
     width: 22rem;
     height: 31rem;
     margin-top: -30rem;
     margin-left: -1rem;
 position: absolute;
 }
-a#scroll-btn[data-v-df212a54][data-v-df212a54] {
+a#scroll-btn{
     margin-left: 10rem;
 }
 .col-md-6 {
     margin-bottom: 1rem;
 }
-.demo[data-v-df212a54] {
+.demo{
     display: flex;
     justify-content: space-evenly;
     margin-left: 0%;
