@@ -17,6 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="Toggler">
         <ul id="ul" class="navbar-nav mb-1 mb-lg-0">
+          <li class="nav-item"><router-link to="/admin">Admin</router-link></li>
           <li class="nav-item"><router-link to="/home">Home</router-link></li>
           <li class="nav-item">
             <router-link to="/about">About</router-link>

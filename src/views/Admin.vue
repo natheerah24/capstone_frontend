@@ -110,11 +110,12 @@
           <td>{{ user.user_type }}</td>
           <td><i class="fa-solid fa-pen"></i></td>
 
-          <td v-for="(item, index) in list" :key="index">
-            {{ user.user_id }}
-            <button @click="deleteUser(id)">
-              <i class="fa-solid fa-trash"></i>
-            </button>
+          <td>
+            <a
+              class="btn"
+              @click="this.$store.dispatch('deleteUser', user.user_id)"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
           </td>
         </tr>
       </tbody>
@@ -242,7 +243,6 @@
           <th scope="row">{{ product.product_id }}</th>
           <td>{{ product.sku }}</td>
           <td>{{ product.name }}</td>
-          <td>{{ product.product_id }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.weight }}</td>
           <td>{{ product.descriptions }}</td>
@@ -251,9 +251,13 @@
           <td>{{ product.country }}</td>
           <td>{{ product.stock }}</td>
           <td><i class="fa-solid fa-pen"></i></td>
-          <button @click="deleteProduct(product.product_id)">
-            <td><i class="fa-solid fa-trash"></i></td>
-          </button>
+          <td>
+            <a
+              class="btn"
+              @click="this.$store.dispatch('deleteProduct', product.product_id)"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -309,11 +313,9 @@ export default {
       id = this.id;
       return this.$store.dispatch("deleteProduct");
     },
-    product() {
-      return this.$store.state.product;
-    },
-    products() {
-      return this.$store.state.products;
+    deleteUser(id) {
+      id = this.id;
+      return this.$store.dispatch("deleteUser");
     },
   },
 };
@@ -338,11 +340,11 @@ h2 {
 }
 .table-head {
   background-color: rgb(212 20 66);
-  color: white;
+  color: black;
   font-family: "Lato", sans-serif;
 }
 td {
-  color: white;
+  color: black;
   font-family: "Lato", sans-serif;
 }
 th {

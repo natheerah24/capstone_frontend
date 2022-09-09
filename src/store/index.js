@@ -1,6 +1,7 @@
 import router from "@/router";
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
+import swal from "sweetalert";
 
 export default createStore({
   state: {
@@ -29,8 +30,11 @@ export default createStore({
     setCart: (state, cart) => {
       state.cart = cart;
     },
-    updateCart: (state, products) => {
-      state.cart.push(products);
+    updateCart: (state, product) => {
+      state.cart.push(product);
+    },
+    removeFromCart: (state, cart) => {
+      state.cart = cart;
     },
     setToken: (state, Token) => {
       state.Token = Token;
@@ -54,6 +58,7 @@ export default createStore({
     login: async (context, payload) => {
       let res = await fetch(
         "https://candykingdom-api.herokuapp.com/users/login",
+        // "http://localhost:3001/users/login",
         {
           method: "POST",
           headers: {
@@ -63,14 +68,23 @@ export default createStore({
             email: payload.email,
             password: payload.password,
           }),
-          mode: "no-cors",
+          // mode: "no-cors",
         }
       );
       let data = await res.json();
-      alert(data);
-      if (data.token) {
-        context.commit("setToken", data.token);
-
+      // alert(data);
+      console.log(data);
+      // alert(data.error);
+      context.commit("setToken", data.token);
+      if (data.error === "Email not found please register") {
+        swal({
+          icon: "error",
+          title: "Error",
+          text: "Email does not exist",
+        });
+      } else if (data.error === "password incorrect") {
+        swal({ icon: "error", title: "Error", text: "Password is incorrect" });
+      } else {
         // Verify token
         //
         fetch("https://candykingdom-api.herokuapp.com/users/users/verify", {
@@ -87,10 +101,8 @@ export default createStore({
             // router.push("/home");
             console.log(data);
           });
-      } else {
-        alert("User not found");
+        router.push("/users");
       }
-      router.push("/users");
     },
     // login: async (context, payload) => {
     //   const { email, password } = payload;
@@ -126,6 +138,7 @@ export default createStore({
 
     createUser: async (context, user) => {
       fetch("https://candykingdom-api.herokuapp.com/users/register", {
+        // fetch("http://localhost:3001/users/register", {
         method: "POST",
         body: JSON.stringify(user),
         headers: {
@@ -133,15 +146,20 @@ export default createStore({
         },
       })
         .then((response) => response.json())
-        .then((json) => console.log(json));
-      console.log(`User ${(user.full_name, user.email)} created successfully`);
+        .then((json) => {
+          console.log(json);
+          alert(json.msg);
+          console.log(
+            `User ${(user.full_name, user.email)} created successfully`
+          );
+        });
     },
 
-    deleteUser: async (context, id) => {
-      fetch("https://candykingdom-api.herokuapp.com/users/" + id, {
-        method: "DELETE",
-      });
-    },
+    // deleteUser: async (context, id) => {
+    //   fetch("https://candykingdom-api.herokuapp.com/users/" + id, {
+    //     method: "DELETE",
+    //   });
+    // },
 
     // getAdmin: async (context) => {
     //   fetch("http://localhost:3000/admin" + id)
@@ -178,22 +196,22 @@ export default createStore({
           context.commit("setProducts", data);
         });
     },
-    deleteProduct: async (context, id) => {
-      // fetch("https://candykingdom-api.herokuapp.com/products/" + id, {
-      //   method: "DELETE",
-      //   headers: {
-      //     // "Access-Control-Allow-Origin": "*",
-      //     "Content-type": "application/json; charset=UTF-8",
-      //   },
-      //   // mode: "no-cors",
-      // })
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     alert(data);
-      //     window.location.reload();
-      //   });
-      alert(id);
-    },
+    // deleteProduct: async (context, id) => {
+    //   // fetch("https://candykingdom-api.herokuapp.com/products/" + id, {
+    //   //   method: "DELETE",
+    //   //   headers: {
+    //   //     // "Access-Control-Allow-Origin": "*",
+    //   //     "Content-type": "application/json; charset=UTF-8",
+    //   //   },
+    //   //   // mode: "no-cors",
+    //   // })
+    //   //   .then((response) => response.json())
+    //   //   .then((data) => {
+    //   //     alert(data);
+    //   //     window.location.reload();
+    //   //   });
+    //   alert(id);
+    // },
 
     // update
     updateProduct: async (context, product) => {
@@ -229,9 +247,13 @@ export default createStore({
         .then((json) => context.commit("setProduct", json));
     },
     // add to cart
-    addCart: async (context, id) => {
+    addToCart: async (context, id) => {
       this.state.cart.product.push(id);
       context.dispatch("updateCart", this.state.cart);
+    },
+    deleteFromCart: async (context, id) => {
+      const newCart = context.state.cart.filter((product) => product.id != id);
+      context.commit("removeFromCart", newCart);
     },
     //  getcart: (context, id) => {
     //   if (context.state.user === null) {
@@ -311,6 +333,36 @@ export default createStore({
     //       context.dispatch("getcart", id);
     //     });
     // },
+
+    deleteProduct: async (context, id) => {
+      console.log(id);
+      // await fetch("https://candykingdom-api.herokuapp.com/products/" + id, {
+      await fetch("http://localhost:3001/products/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getProducts");
+        });
+    },
+    deleteUser: async (context, id) => {
+      console.log(id);
+      // await fetch("https://candykingdom-api.herokuapp.com/products/" + id, {
+      await fetch("http://localhost:3001/users/" + id, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {          console.log(data);
+          context.dispatch("getUsers");
+        });
+    },
   },
 
   plugins: [createPersistedState()],

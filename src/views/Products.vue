@@ -1,16 +1,16 @@
 <template>
   <section id="products">
     <h1 id="heading">Products</h1>
-    <select name="category" id="" v-model="category">
-      <option value="All" selected>All</option>
-      <option value="chips">Chips</option>
-      <option value="sweets">Sweets</option>
-      <option value="chocolates">Chocolates</option>
-      <option value="biscuits">Biscuits</option>
-      <option value="beverages">Beverages</option>
-    </select>
     <div class="wrap">
       <div class="search">
+        <select name="category" id="" v-model="category">
+          <option value="All" selected>All</option>
+          <option value="chips">Chips</option>
+          <option value="sweets">Sweets</option>
+          <option value="chocolates">Chocolates</option>
+          <option value="biscuits">Biscuits</option>
+          <option value="beverages">Beverages</option>
+        </select>
         <input
           type="text"
           class="searchTerm"
@@ -55,9 +55,9 @@
               <!-- <button class="add-to-cart" @click="addCart(product)">
                 <i class="fas fa-shopping-bag"></i>
               </button> -->
-              <router-link to="/cart" class="add-to-cart"
-                ><i class="fas fa-shopping-bag"></i
-              ></router-link>
+              <button class="add-to-cart" @click="addToCart">
+                <i class="fas fa-shopping-bag"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -76,8 +76,8 @@ export default {
     };
   },
   methods: {
-    addCart(product) {
-      this.$store.commit("updateCart", product);
+    addToCart(item) {
+      this.$store.commit("updateCart", item);
     },
     sortByPrice() {
       //gives function a name (does not need to be the same as the name given in the store)
@@ -248,6 +248,7 @@ html {
   border-radius: 12px 12px 20px 12px;
   display: inline-block;
   transition: all 0.3s ease-in-out;
+  border: none;
 }
 .product-grid .add-to-cart:hover {
   border-radius: 10px;
@@ -381,5 +382,14 @@ button#sort {
   background-color: rgb(212 20 66);
   color: white;
   border-radius: 6px;
+}
+select {
+  background-color: rgb(212 20 66);
+  word-wrap: normal;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  height: 2rem;
+  margin-right: 1rem;
 }
 </style>

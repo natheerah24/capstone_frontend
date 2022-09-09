@@ -246,7 +246,7 @@ h1 {
   color: white;
 }
 #profileCard {
-  width: 90vw;
+  width: 72vw;
   margin: auto;
   border-radius: 18px;
   background-color: rgb(212 20 66);
@@ -262,9 +262,9 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
-.cardImage {
-  width: 25vw;
-  height: 25vw;
+.cardImage{
+  width: 15vw;
+  height: 15vw;
   filter: invert(1);
 }
 .card {

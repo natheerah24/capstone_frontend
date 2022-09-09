@@ -76,21 +76,14 @@
             placeholder="country"
             v-model="country"
           />
-          <!-- <input
-            type="text"
-            id="password"
-            class="fadeIn third"
-            name="login"
-            placeholder="re-enter password"
-          /> -->
           <button class="welcome">
             <input type="submit" class="fadeIn fourth" value="Sign Up" />
           </button>
         </form>
         <!-- <p v-if="showError" id="error">Username already exists</p> -->
-        <div v-if="user">
+        <!-- <div v-if="user">
           <h1 class="welcome">Welcome {{ user.full_name }}</h1>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -107,7 +100,7 @@ export default {
       phone: "",
       billing_address: "",
       password: "",
-      shippingdefault_shipping_address_address: "",
+      default_shipping_address: "",
       country: "",
       showError: false,
     };

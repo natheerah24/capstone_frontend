@@ -37,7 +37,7 @@ a.btn.btn-outline-light.rounded-pill {
   clip-path: circle(31.1% at 50% 49%);
   width: 40rem !important;
   height: 53rem !important;
-  margin-left: 25rem !important;
+  margin-left: 26rem !important;
   margin-top: -6rem !important;
 }
 #heading {
@@ -52,7 +52,7 @@ a.btn.btn-outline-light.rounded-pill {
   width: 40rem !important;
   height: 33rem !important;
   margin-top: -39rem !important;
-  margin-left: 24rem !important;
+  margin-left: 25rem !important;
   position: absolute;
 }
 #slogan {
@@ -90,7 +90,7 @@ a.btn.btn-outline-light.rounded-pill {
     font-size: 2rem;
   }
 } */
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
   #logo {
     margin-left: 4rem;
     margin-top: -10rem;
